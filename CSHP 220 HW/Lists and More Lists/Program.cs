@@ -33,6 +33,16 @@ namespace Lists_and_More_Lists
                 DisplayResults(passResults, "Password is hello:");
             }
 
+            users.RemoveAll(user => user.Password == user.Name.ToLower());
+
+            var match = users.FirstOrDefault(user => user.Password == "hello");
+            if (match != null)
+            {
+                users.Remove(match);
+            }
+
+            DisplayResults(users, "Remaining users:");
+
             static void DisplayResults(List<User> results, string userResults)
             {
                 Console.WriteLine();
