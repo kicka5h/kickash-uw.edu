@@ -10,7 +10,7 @@
     <StackPanel x:Name="uxContainer">
         <TextBlock>Enter Name:</TextBlock>
 
-        <TextBox x:Name="uxName" 
+        <TextBox x:Name="uxName"
             Text="{Binding Name, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}">
         </TextBox>
 
