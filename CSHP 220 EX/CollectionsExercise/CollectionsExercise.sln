@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29806.167
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CheckBox Exercise", "CheckBox Exercise.csproj", "{82130E57-7557-4B67-9415-21973078213E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CollectionsExercise", "CollectionsExercise.csproj", "{C04D1B49-320B-48A9-A429-1D27A67A08B1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{82130E57-7557-4B67-9415-21973078213E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{82130E57-7557-4B67-9415-21973078213E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{82130E57-7557-4B67-9415-21973078213E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{82130E57-7557-4B67-9415-21973078213E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C04D1B49-320B-48A9-A429-1D27A67A08B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C04D1B49-320B-48A9-A429-1D27A67A08B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C04D1B49-320B-48A9-A429-1D27A67A08B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C04D1B49-320B-48A9-A429-1D27A67A08B1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {254038B9-1C4C-4162-8F36-EDC3832C8B77}
+		SolutionGuid = {239BC26A-7CBF-4D88-903B-ECC57C8A4C27}
 	EndGlobalSection
 EndGlobal
