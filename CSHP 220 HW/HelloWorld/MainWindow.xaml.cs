@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Microsoft.EntityFrameworkCore;
 
 namespace HelloWorld
 {
@@ -27,6 +28,11 @@ namespace HelloWorld
             InitializeComponent();
 
             uxContainer.DataContext = user;
+
+            var sample = new SampleContext();
+            sample.User.Load();
+            var users = sample.User.Local.ToObservableCollection();
+            uxList.ItemsSource = users;
         }
 
         private void setButtonEnable()
