@@ -28,7 +28,7 @@
             Content="{Binding PasswordError, UpdateSourceTrigger=PropertyChanged}">
         </Label>
 
-        <Button x:Name="uxSubmit" Click="uxSubmit_Click" IsEnabled="False">Submit</Button>
+        <Button x:Name="uxSubmit" Click="uxSubmit_Click">Submit</Button>
 
         <Button>
             <StackPanel Orientation="Horizontal">

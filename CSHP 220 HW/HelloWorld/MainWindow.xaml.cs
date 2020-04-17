@@ -33,11 +33,11 @@ namespace HelloWorld
         {
             if ((uxName.Text != String.Empty) && (uxPassword.Text != String.Empty))
             {
-                uxSubmit.IsEnabled = true;
+                uxSubmit.IsEnabled = false;
             }
             else
             {
-                uxSubmit.IsEnabled = false;
+                uxSubmit.IsEnabled = true;
             }
         }
 
