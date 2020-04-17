@@ -13,6 +13,12 @@ namespace HelloWorld.Models
         private string nameError;
         private string passwordError;
 
+        // Add ToString method
+        public override string ToString()
+        {
+            return name;
+        }
+
         public string NameError
         {
             get
@@ -92,7 +98,7 @@ namespace HelloWorld.Models
         {
             get
             {
-                
+
                 switch (columnName)
                 {
                     case "Name":
@@ -141,4 +147,3 @@ namespace HelloWorld.Models
         }
     }
 }
-

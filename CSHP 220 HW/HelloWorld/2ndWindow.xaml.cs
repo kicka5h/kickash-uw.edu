@@ -13,11 +13,11 @@ using System.Windows.Shapes;
 namespace HelloWorld
 {
     /// <summary>
-    /// Interaction logic for SecondWindow.xaml
+    /// Interaction logic for _2ndWindow.xaml
     /// </summary>
-    public partial class SecondWindow : Window
+    public partial class _2ndWindow : Window
     {
-        public SecondWindow()
+        public _2ndWindow()
         {
             InitializeComponent();
 

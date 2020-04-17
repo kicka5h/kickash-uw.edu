@@ -45,7 +45,7 @@ namespace HelloWorld
         {
             MessageBox.Show("Submitting password:" + uxPassword.Text);
 
-            var window = new SecondWindow();
+            var window = new _2ndWindow();
             Application.Current.MainWindow = window;
             Close();
             window.Show();
