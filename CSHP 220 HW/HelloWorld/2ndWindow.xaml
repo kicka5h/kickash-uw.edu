@@ -7,6 +7,13 @@
         mc:Ignorable="d"
         Title="_2ndWindow" Height="450" Width="800">
     <Grid>
-        <ListView x:Name="uxList"></ListView>   
+        <ListView x:Name="uxList">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn></GridViewColumn>
+                        <GridViewColumn></GridViewColumn>
+                     </GridView>
+                </ListView.View>
+        </ListView>   
     </Grid>
 </Window>
