@@ -8,14 +8,10 @@
         Title="MainWindow" Height="450" Width="800">
     
     <StackPanel x:Name="uxContainer">
-        <TextBlock>Enter US Zip Code:</TextBlock>
-        <TextBox x:Name="uxUSZip" Text="{Binding ZipCodeError, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" />
-        <Label x:Name="uxUSZipError" Content="{Binding ZipCodeError, UpdateSourceTrigger=PropertyChanged}" />
+        <TextBlock>Enter Your Zip Code:</TextBlock>
+        <TextBox x:Name="uxZip" TextChanged="uxZip_TextChanged" IsEnabled="True"/>
+        <Label x:Name="uxZipError"  Content="{Binding PasswordError, UpdateSourceTrigger=PropertyChanged}"></Label>
 
-        <TextBlock>Enter CAN Zip code:</TextBlock>
-        <TextBox x:Name="uxCANZip" Text="{Binding ZipCodeError, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" />
-        <Label x:Name="uxCANZipError" Content="{Binding ZipCodeError, UpdateSourceTrigger=PropertyChanged}" />
-
-        <Button x:Name="uxButton" Click="uxButton_Click">Submit</Button>
+        <Button x:Name="uxSubmit" Content="Submit" Click="uxSubmit_Click" IsEnabled="False"/>
     </StackPanel>
 </Window>
