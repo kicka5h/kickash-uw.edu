@@ -21,5 +21,32 @@ namespace HelloWorld
         {
             InitializeComponent();
         }
+
+        private void OnNew_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("New command");
+        }
+        private void OnClose_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
+
+        private void OnNew_CanExecute(object sender, CanExecuteRoutedEventArgs e)
+        {
+            e.CanExecute = IsFileNewActive;
+        }
+
+        private bool IsFileNewActive
+        {
+            get
+            {
+                return false;
+            }
+        }
+
+        private void uxFile_Loaded(object sender, RoutedEventArgs e)
+        {
+            uxFileNew.IsEnabled = IsFileNewActive;
+        }
     }
 }
