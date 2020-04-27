@@ -22,7 +22,7 @@ namespace HelloWorld
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-                optionsBuilder.UseSqlServer("Data Source=.\\sqlexpress;Initial Catalog=Sample;integrated security=True");
+                optionsBuilder.UseSqlServer("Data Source=localhost\\SQLEXPRESS;Initial Catalog=Sample;integrated security=True");
             }
         }
 
@@ -30,11 +30,6 @@ namespace HelloWorld
         {
             modelBuilder.Entity<User>(entity =>
             {
-                entity.Property(e => e.UserAge)
-                    .IsRequired()
-                    .HasMaxLength(10)
-                    .IsFixedLength();
-
                 entity.Property(e => e.UserName)
                     .IsRequired()
                     .HasMaxLength(50);
