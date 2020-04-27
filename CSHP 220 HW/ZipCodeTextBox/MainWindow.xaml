@@ -1,0 +1,21 @@
+﻿<Window x:Class="ZipCodeTextBox.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ZipCodeTextBox"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    
+    <StackPanel x:Name="uxContainer">
+        <TextBlock>Enter US Zip Code:</TextBlock>
+        <TextBox x:Name="uxUSZip" Text="{Binding ZipCodeError, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" />
+        <Label x:Name="uxUSZipError" Content="{Binding ZipCodeError, UpdateSourceTrigger=PropertyChanged}" />
+
+        <TextBlock>Enter CAN Zip code:</TextBlock>
+        <TextBox x:Name="uxCANZip" Text="{Binding ZipCodeError, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" />
+        <Label x:Name="uxCANZipError" Content="{Binding ZipCodeError, UpdateSourceTrigger=PropertyChanged}" />
+
+        <Button x:Name="uxSubmit" Click="uxSubmit_Click">Submit</Button>
+    </StackPanel>
+</Window>
