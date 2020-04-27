@@ -32,8 +32,29 @@ namespace ZipCodeTextBox
 
         private void setButtonEnable()
         {
-            if ((uxUSZip.Text == String.Empty) && (uxCANZip.Text == String.Empty)) { }
-            else { }
+            if ((uxUSZip.Text == String.Empty) && (uxCANZip.Text == String.Empty)) 
+            {
+                uxButton.IsEnabled = false;
+            }
+            else 
+            {
+                uxButton.IsEnabled = true;
+            }
+        }
+
+        private void uxUSZip_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            setButtonEnable();
+        }
+
+        private void uxCANZip_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            setButtonEnable();
+        }
+
+        private void uxButton_Click(object sender, RoutedEventArgs e)
+        {
+            
         }
     }
 }

@@ -16,6 +16,6 @@
         <TextBox x:Name="uxCANZip" Text="{Binding ZipCodeError, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" />
         <Label x:Name="uxCANZipError" Content="{Binding ZipCodeError, UpdateSourceTrigger=PropertyChanged}" />
 
-        <Button x:Name="uxSubmit" Click="uxSubmit_Click">Submit</Button>
+        <Button x:Name="uxButton" Click="uxButton_Click">Submit</Button>
     </StackPanel>
 </Window>
