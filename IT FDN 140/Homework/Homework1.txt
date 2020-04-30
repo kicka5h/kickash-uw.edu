@@ -1,0 +1,20 @@
+Ash Karczag
+Homework 1
+April/28/2020
+ 
+1. Answers to the reading questions
+    1. What is an Absolute vs a Relative pathname?
+    	Answer: An absolute pathname is the entire path from the root, where as a relative path is used when directing to a file relative 	  to the current directory. Relative path assumes the current working directory + your entered pathname.
+    2. What can you do with the file command? 
+    	Answer: File helps determine a file's type and contents. This is useful because files in Linux don't have name extensions.
+    3. According to the author what type of programs are less and more?
+    	Answer: The author refers to them as "pagers", programs designed to make viewing long text files easier in the terminal. 
+2. Your prod system username.
+	Answer: kickash
+3. The location of your sudo log file and name (absolute path).
+	Answer: /etc/var/log/secure
+4. The location to the messages log and a brief description of the type of content it contains.
+	Answer: /etc/var/log/messages
+	These appear to be system event messages. 
+5. Confirm that you posted an introduction in the Canvas discusion forum.
+	Answer: Confirmed.
