@@ -1,0 +1,6 @@
+cut -d: -f7 /etc/passwd
+cut -d: -f7 /etc/passwd | uniq -u -c
+grep cachedir /etc/yum.conf | cut -d= -f2
+who | awk '{print NF "\t" $0}' | cut -c1-3
+find /etc -name "*.conf" | xargs grep example | uniq -u
+sed -n 5,9p /etc/passwd
