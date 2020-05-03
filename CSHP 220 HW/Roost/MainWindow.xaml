@@ -27,17 +27,23 @@
         </Menu>
 
         <Label x:Name="uxRecentContactsLabel" Content="Recent Contacts"/>
-        <ListView x:FieldModifier="uxRecentContactsList">
+        <ListView x:Name="uxRecentContactsList">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn DisplayMemberBinding="{Binding ContactName}" Header="Contact Name" Width="100"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding ContactName}" Header="Name" Width="100"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding ContactPhoneNumber}" Header="Phone Number" Width="100" />
+                    <GridViewColumn DisplayMemberBinding="{Binding ContactSent}" Header="Messages Sent" Width="100" />
                 </GridView>
             </ListView.View>
         </ListView>
 
-        <ListView x:Name="uxListItems">
+        <Label x:Name="uxRecentMessagesLabel" Content="Recent Messages"/>
+        <ListView x:Name="uxRecentMessagesList">
             <ListView.View>
                 <GridView>
+                    <GridViewColumn DisplayMemberBinding="{Binding MessageName}" Header="Name" Width="100"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding MessageBody}" Header="Message Preview" Width="100" />
+                    <GridViewColumn DisplayMemberBinding="{Binding ContactSent}" Header="Sent To" Width="100" />
                 </GridView>
             </ListView.View>
         </ListView>

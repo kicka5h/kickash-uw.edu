@@ -1,5 +1,8 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using Roost.Models;
+using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,6 +26,16 @@ namespace Roost
         public MainWindow()
         {
             InitializeComponent();
+
+            var message = new MessagesContext();
+            message.Message.Load();
+            var messages = message.Message.Local.ToObservableCollection();
+            uxRecentMessagesList.ItemsSource = messages;
+
+            var contact = new ContactsContext();
+            contact.Contact.Load();
+            var contacts = contact.Contact.Local.ToObservableCollection();
+            uxRecentContactsList.ItemsSource = contacts;
         }
 
         #region New button clicks
