@@ -24,5 +24,71 @@ namespace Roost
         {
             InitializeComponent();
         }
+
+        #region New button clicks
+        private void uxNew_Loaded(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void uxNewCollection_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void uxNewMessage_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void uxNewSchedule_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+        #endregion
+
+        #region Open button clicks
+        private void uxOpen_Loaded(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void uxOpenMessages_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void uxOpenCollections_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void uxOpenSchedules_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+        #endregion
+
+        #region Help button clicks
+        private void uxHelp_Loaded(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void uxHelpMessages_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void uxHelpCollections_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void uxHelpSchedules_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+        #endregion
     }
 }

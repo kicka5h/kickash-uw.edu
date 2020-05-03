@@ -5,12 +5,42 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Roost"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Roost" d:DesignWidth="519.257" d:DesignHeight="229.92">
 
-    <StackPanel>
-        <Menu Height="100"/>
-        <Button Content="+">
-        </Button>
+    <StackPanel x:Name="uxContainer">
+        <Menu>
+            <MenuItem x:Name="uxNew" Header="_New" Loaded="uxNew_Loaded">
+                <MenuItem x:Name="uxNewMessage" Header="_Message" Click="uxNewMessage_Click"/>
+                <MenuItem x:Name="uxNewCollection" Header="_Collection" Click="uxNewCollection_Click" />
+                <MenuItem x:Name="uxNewSchedule" Header="_Schedule" Click="uxNewSchedule_Click"/>
+            </MenuItem>
+            <MenuItem x:Name="uxOpen" Header="_Open" Loaded="uxOpen_Loaded">
+                <MenuItem x:Name="uxOpenMessages" Header="_Messages" Click="uxOpenMessages_Click"/>
+                <MenuItem x:Name="uxOpenCollections" Header="_Collections" Click="uxOpenCollections_Click"/>
+                <MenuItem x:Name="uxOpenSchedules" Header="_Schedules" Click="uxOpenSchedules_Click"/>
+            </MenuItem>
+            <MenuItem x:Name="uxHelp" Header="_Help" Loaded="uxHelp_Loaded">
+                <MenuItem x:Name="uxHelpMessages" Header="_Messages" Click="uxHelpMessages_Click"/>
+                <MenuItem x:Name="uxHelpCollections" Header="_Collections" Click="uxHelpCollections_Click"/>
+                <MenuItem x:Name="uxHelpSchedules" Header="_Schedules" Click="uxHelpSchedules_Click"/>
+            </MenuItem>
+        </Menu>
+
+        <Label x:Name="uxRecentContactsLabel" Content="Recent Contacts"/>
+        <ListView x:FieldModifier="uxRecentContactsList">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn DisplayMemberBinding="{Binding ContactName}" Header="Contact Name" Width="100"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+        <ListView x:Name="uxListItems">
+            <ListView.View>
+                <GridView>
+                </GridView>
+            </ListView.View>
+        </ListView>
 
     </StackPanel>
 </Window>
