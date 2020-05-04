@@ -1,0 +1,20 @@
+﻿<Window x:Class="Roost.Popups.NewMessage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Roost.PopUps"
+        mc:Ignorable="d"
+        Title="NewMessage" Height="450" Width="800">
+
+    <StackPanel Orientation="Vertical">
+        <Label Name="NewMessageName"  Content="Message Name:" />
+        <TextBox Name="txtMessageName" />
+        <Label Name="NewMessageBody"  Content="Message Body:" />
+        <TextBox Name="txtMessageBody" />
+
+        <Button Name="btnSubmit" Click="btnSubmit_Click" Content="Submit" />
+        <Button Name="btnCancel" Click="btnCancel_Click" Content="Cancel" />
+    </StackPanel>
+   
+</Window>

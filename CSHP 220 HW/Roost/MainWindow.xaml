@@ -19,6 +19,12 @@
                 <MenuItem x:Name="uxOpenCollections" Header="_Collections" Click="uxOpenCollections_Click"/>
                 <MenuItem x:Name="uxOpenSchedules" Header="_Schedules" Click="uxOpenSchedules_Click"/>
             </MenuItem>
+            <MenuItem x:Name="uxEdit" Header="_Edit" Loaded="uxEdit_Loaded">
+                <MenuItem x:Name="uxEditMessage" Header="_Message" Click="uxEditMessage_Click"/>
+                <MenuItem x:Name="uxEditCollection" Header="_Collection" Click="uxEditCollection_Click"/>
+                <MenuItem x:Name="uxEditSchedule" Header="_Schedule" Click="uxEditSchedule_Click"/>
+            </MenuItem>
+            
             <MenuItem x:Name="uxHelp" Header="_Help" Loaded="uxHelp_Loaded">
                 <MenuItem x:Name="uxHelpMessages" Header="_Messages" Click="uxHelpMessages_Click"/>
                 <MenuItem x:Name="uxHelpCollections" Header="_Collections" Click="uxHelpCollections_Click"/>

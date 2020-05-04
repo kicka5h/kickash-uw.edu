@@ -23,6 +23,7 @@ namespace Roost
     /// </summary>
     public partial class MainWindow : Window
     {
+
         public MainWindow()
         {
             InitializeComponent();
@@ -30,12 +31,10 @@ namespace Roost
             var message = new MessagesContext();
             message.Message.Load();
             var messages = message.Message.Local.ToObservableCollection();
-            uxRecentMessagesList.ItemsSource = messages;
 
             var contact = new ContactsContext();
             contact.Contact.Load();
             var contacts = contact.Contact.Local.ToObservableCollection();
-            uxRecentContactsList.ItemsSource = contacts;
         }
 
         #region New button clicks
@@ -51,7 +50,18 @@ namespace Roost
 
         private void uxNewMessage_Click(object sender, RoutedEventArgs e)
         {
+            NewMessage popup = new NewMessage();  // this is the class of your other page
 
+            //ShowDialog means you can't focus the parent window, only the popup
+            popup.ShowDialog(); //execution will block here in this method until the popup closes
+
+            if (popup.cancelled == true)
+                return;
+            else
+            {
+                string result = popup.strMessageName;
+                //UserNameTextBlock.Text = result;  // should show what was input on the other page
+            }        
         }
 
         private void uxNewSchedule_Click(object sender, RoutedEventArgs e)
@@ -99,6 +109,28 @@ namespace Roost
         }
 
         private void uxHelpSchedules_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+        #endregion
+
+        #region Edit button clicks
+        private void uxEdit_Loaded(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void uxEditMessage_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void uxEditCollection_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void uxEditSchedule_Click(object sender, RoutedEventArgs e)
         {
 
         }
