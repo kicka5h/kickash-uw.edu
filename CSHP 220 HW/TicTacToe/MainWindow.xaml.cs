@@ -21,6 +21,7 @@ namespace TicTacToe
     public partial class MainWindow : Window
     {
         int clicks;
+        string player;
 
         public MainWindow()
         {
@@ -30,7 +31,7 @@ namespace TicTacToe
         private void uxNewGame_Click(object sender, RoutedEventArgs e)
         {
             clicks = 0;
-            
+
             foreach (DependencyObject cell in uxGrid.Children)
             {
                 ((Button)cell).Content = String.Empty;
@@ -39,7 +40,7 @@ namespace TicTacToe
 
         private void uxExit_Click(object sender, RoutedEventArgs e)
         {
-            //this.Close();
+            this.Close();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -53,12 +54,16 @@ namespace TicTacToe
             int GridRow = int.Parse(ParseTag[0]);
             int GridColumn = int.Parse(ParseTag[1]);
 
-            if (clicks%2 == 0)
+            if (clicks % 2 == 0)
             {
-                button.Content = "O";    
+                button.Content = "O";
+                player = "Player O";
             }
-            else {button.Content = "X";}
+            else
+            {
+                button.Content = "X";
+                player = "Player X";
+            }
         }
-
     }
 }
