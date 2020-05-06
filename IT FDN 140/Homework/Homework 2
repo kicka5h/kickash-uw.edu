@@ -1,0 +1,76 @@
+Ash Karczag
+Homework 2
+05/05/2020
+
+1. Answers to the reading questions (I haven't done the reading yet, but this should be updated in GitHub by the time you're reading it. Just didn't want to forget to submit the homework!!)
+	1. What is tee used for? provide an example use case.
+		Answer:
+	2. What does the command which tell you?
+		Answer:
+	3. How can you use the tilde ~ symbol in Linux?
+		Answer:
+	4. What is one thing you learned about Vim in chapter 12?
+		Answer:
+2. & 3. Provide the name of your preferred editor and your two favorite features of the editor
+	Answer: Nano. I like that the common commands are always present at the bottom of the terminal when using the editor. I also develop in VS, Powershell, and VS Code, when I'm not in Linux, so these shortcuts get REALLY jumbled up in the ol' thinker and it's nice to have an on-screen reminder. Also, all the shortcuts are CTRL + "". Super easy to remember, and super quick.
+4. The command used to find how many users have "/var/adm" defined as the home directory and answer.
+	Answer: cut -d: -f6 /etc/passwd | uniq -u | grep 'adm'
+5. The command used to find the total number of invalid user errors and the answer.
+	Answer: sudo cat /var/log/secure | grep 'Invalid user' | wc -l (there were 15909 LOL)
+6. The command used to find all the failed usernames that have attempted to login to your prod system and answer ( you can truncate this list if you want).
+	Answer: 
+		Code: sudo cat /var/log/secure | grep -o 'Invalid user.*' | cut -d' ' -f3 | uniq -u -c
+		Notes: I feel like the occurence count is incorrect, but no matter what I do I can't get this to print anything other than '1' when using the '-c' param for 'wc'.
+		Results(truncated):       
+		  1 cathy
+	      1 default
+	      1 minecraft
+	      1 node
+	      1 conan
+	      1 yh
+	      1 contact
+	      1 csgo
+	      1 cex
+	      1 nn
+	      1 zsy
+	      1 ora
+	      1 info
+	      1 adil
+	      1 weitian
+	      1 toc
+	      1 ftpuser
+	      1 oracle
+	      1 sat
+	      1 market
+	      1 reboot
+	      1 vbox
+	      1 lfq
+	      1 deploy
+	      1 admin
+	      1 mongo
+	      1 admin
+	      1 guest
+	      1 gibson
+	      1 cms
+	      1 sonar
+	      1 chang
+	      1 newuser
+	      1 xiaojie
+	      1 zack
+	      1 bob
+	      1 ac
+	      1 grq
+	      1 iron
+	      1 banan
+	      1 blessing
+	      1 cyrus
+	      1 sylvia
+	      1 support
+	      1 tommaso
+	      1 jhl
+	      1 ishihara
+	      1 btc
+	      1 general
+	      1 hwserver
+	      1 manoj
+	      1 zhaoyk
