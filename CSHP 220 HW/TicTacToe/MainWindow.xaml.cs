@@ -28,6 +28,22 @@ namespace TicTacToe
             InitializeComponent();
         }
 
+        private void disableButtons()
+        {
+            foreach (DependencyObject cell in uxGrid.Children)
+            {
+                ((Button)cell).IsEnabled = false;
+            }
+        }
+
+        private void enableButtons()
+        {
+            foreach (DependencyObject cell in uxGrid.Children)
+            {
+                ((Button)cell).IsEnabled = true;
+            }
+        }
+
         private void uxNewGame_Click(object sender, RoutedEventArgs e)
         {
             clicks = 0;
@@ -36,6 +52,10 @@ namespace TicTacToe
             {
                 ((Button)cell).Content = String.Empty;
             }
+
+            enableButtons();
+
+            MessageBox.Show("Ready for a new game! Player X goes first.");
         }
 
         private void uxExit_Click(object sender, RoutedEventArgs e)
@@ -58,11 +78,37 @@ namespace TicTacToe
             {
                 button.Content = "O";
                 player = "Player O";
+
+                MessageBox.Show("Next turn");
             }
             else
             {
                 button.Content = "X";
                 player = "Player X";
+
+                MessageBox.Show("Next turn");
+            }
+
+            var checkRow = from b in uxGrid.Children.OfType<Button>()
+                           where b.Content != null &&
+                           b.Content.ToString() == button.Content.ToString() &&
+                           b.Tag.ToString().Split(",")[0] == button.Tag.ToString().Split(",")[0]
+                           select b;
+
+            var rowWinner = checkRow.Count() == 3;
+
+            var checkColumn = from b in uxGrid.Children.OfType<Button>()
+                              where b.Content != null &&
+                              b.Content.ToString() == button.Content.ToString() &&
+                              b.Tag.ToString().Split(",")[1] == button.Tag.ToString().Split(",")[1]
+                              select b;
+
+            var columnWinner = checkColumn.Count() == 3;
+
+            if (rowWinner || columnWinner)
+            {
+                disableButtons();
+                MessageBox.Show($"Winner winner, chicken dinner! {player} has won!");
             }
         }
     }
