@@ -15,7 +15,7 @@ namespace Lorry
     /// <summary>
     /// Interaction logic for HaikuWindow.xaml
     /// </summary>
-    public partial class HaikuWindow : Window
+    public partial class HaikuWindow : Events
     {
         public HaikuWindow()
         {

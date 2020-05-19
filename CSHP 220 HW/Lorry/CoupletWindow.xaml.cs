@@ -15,16 +15,11 @@ namespace Lorry
     /// <summary>
     /// Interaction logic for CoupletWindow.xaml
     /// </summary>
-    public partial class CoupletWindow : Window
+    public partial class CoupletWindow : Events
     {
         public CoupletWindow()
         {
             InitializeComponent();
-        }
-
-        private void uxFileHome_Click(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }

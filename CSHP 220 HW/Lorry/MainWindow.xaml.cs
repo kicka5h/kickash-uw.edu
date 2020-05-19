@@ -16,7 +16,5 @@ namespace Lorry
             recentPoem.Recent.Load();
             uxRecentPoem.DataContext = recentPoem.Recent.Local.ToObservableCollection();
         }
-
-
     }
 }
