@@ -42,9 +42,13 @@ namespace Lorry
 
         }
 
-        private void uxFileNewCouplet_Click(object sender, RoutedEventArgs e)
+        public void uxFileNewCouplet_Click(object sender, RoutedEventArgs e)
         {
-
+            var coupletWindow = new CoupletWindow();
+            var mainWindow = new MainWindow();
+            Application.Current.MainWindow = coupletWindow;
+            mainWindow.Close();
+            coupletWindow.Show();
         }
 
         private void uxFileOpen_Click(object sender, RoutedEventArgs e)
@@ -96,5 +100,7 @@ namespace Lorry
         {
 
         }
+
+
     }
 }

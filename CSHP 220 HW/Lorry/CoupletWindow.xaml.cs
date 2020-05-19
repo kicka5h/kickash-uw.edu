@@ -21,5 +21,10 @@ namespace Lorry
         {
             InitializeComponent();
         }
+
+        private void uxFileHome_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
