@@ -8,10 +8,6 @@
         mc:Ignorable="d"
         Title="Lorry" Height="450" Width="800">
 
-    <Window.Resources>
-        
-    </Window.Resources>
-
     <StackPanel>
         <Menu>
             <MenuItem x:Name="uxFile" Header="_File" Loaded="uxFile_Loaded">
@@ -35,7 +31,9 @@
         </Menu>
 
         <Label x:Name="uxRecentLabel" FontWeight="Bold" FontSize="17"  Content="Recent" Loaded="uxRecentLabel_Loaded"/>
+        
         <Label x:Name="uxRecentDate" Content="{Binding RecentDate}" />
+        
         <Label x:Name="uxRecentPoem" Content="{Binding RecentContent}" />
     </StackPanel>
 
