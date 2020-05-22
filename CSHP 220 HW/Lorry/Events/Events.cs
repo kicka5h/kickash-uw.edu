@@ -92,5 +92,19 @@ namespace Lorry
         {
 
         }
+
+        public void uxGenerateCouplet_Click(object sender, RoutedEventArgs e)
+        {
+            Random rnd = new Random();
+            Couplet couplet = new Couplet();
+            Couplet newCouplet = couplet;
+
+            string[] line = { newCouplet.CoupletContent };
+            int coupletLine = rnd.Next(line.Length);
+            string newLine = line[coupletLine];
+
+            var coupletWindow = new CoupletWindow();
+            coupletWindow.uxSQLCouplet.Content = newLine;
+        }
     }
 }

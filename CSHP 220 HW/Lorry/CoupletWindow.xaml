@@ -6,7 +6,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="Lorry, New Couplet" Height="450" Width="800">
+        Title="Couplet" Height="450" Width="800">
     
     <StackPanel>
         <Menu>
@@ -29,7 +29,11 @@
             </MenuItem>
             <MenuItem x:Name="uxHelp" Header="_Help" Loaded="uxHelp_Loaded"/>
         </Menu>
-        
+
+        <Button x:Name="uxGenerateCouplet" Content="Generate!" Click="uxGenerateCouplet_Click"/>
+
+        <Label x:Name="uxSQLCouplet" Content="" />
+
     </StackPanel>
 
 </src:Events>

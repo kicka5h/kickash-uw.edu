@@ -8,30 +8,24 @@ using System.Windows.Documents;
 
 namespace Lorry.Helpers
 {
-    class SQLGet
+    public class SQLGet
     {
-        class AddtoSQL
+        public static string query = string.Empty;
+
+        public class GetfromSQL
         {
-            public static void GetInfo(string fullname)
+            public static void GetInfo(string table)
             {
-                string table = string.Empty;
-
-                string mainWindow = MainWindow.TitleProperty.ToString();
-                string coupletWindow = CoupletWindow.TitleProperty.ToString();
-
-                if (WDWGet.windowName == coupletWindow)
-                {
-                    table = "Couplet";
-                }
-
                 try
                 {
                     // Query.  
-                    string query = "SELECT * FROM" + table +
+                    string query = "SELECT * FROM" + WDWGet.windowName +
                                    "WHERE(ABS(CAST(BINARY_CHECKSUM(*) *RAND()) as int)) % 100) < 10";
 
                     // Execute.  
                     SQLExecute.executeQuery(query);
+
+                    //return query;
                 }
                 catch (Exception ex)
                 {
