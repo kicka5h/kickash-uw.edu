@@ -1,4 +1,5 @@
 ﻿using Lorry.Helpers;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -22,6 +23,11 @@ namespace Lorry
         public CoupletWindow()
         {
             InitializeComponent();
+
+            var coupletContext = new LorryContext();
+            coupletContext.Couplet.Load();
+
+            uxList.ItemsSource = coupletContext.Couplet.Local.ToObservableCollection();
         }
     }
 }

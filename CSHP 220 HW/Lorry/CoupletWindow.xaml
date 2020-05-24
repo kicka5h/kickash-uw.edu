@@ -8,7 +8,7 @@
         mc:Ignorable="d"
         Title="Couplet" Height="450" Width="800">
     
-    <StackPanel>
+    <StackPanel x:Name="uxPanel">
         <Menu>
             <MenuItem x:Name="uxFile" Header="_File" Loaded="uxFile_Loaded">
                 <MenuItem x:Name="uxFileNew" Header="_New" Click="uxFileNew_Click">
@@ -32,7 +32,13 @@
 
         <Button x:Name="uxGenerateCouplet" Content="Generate!" Click="uxGenerateCouplet_Click"/>
 
-        <Label x:Name="uxSQLCouplet" Content="" />
+        <ListView x:Name="uxList">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Possible Lines" DisplayMemberBinding="{Binding CoupletContent}" />
+                </GridView>
+            </ListView.View>
+        </ListView>
 
     </StackPanel>
 

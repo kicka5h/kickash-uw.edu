@@ -1,10 +1,27 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Windows;
 
 namespace Lorry
 {
+    public static class CollectionExtension
+    {
+        private static Random rng = new Random();
+
+        public static Couplet RandomElement<Couplet>(this IList<Couplet> list)
+        {
+            return list[rng.Next(list.Count)];
+        }
+
+        public static Couplet RandomElement<Couplet>(this Couplet[] array)
+        {
+            return array[rng.Next(array.Length)];
+        }
+    }
+
     public class Events : Window
     {
         public void uxFile_Loaded(object sender, RoutedEventArgs e)
@@ -19,28 +36,20 @@ namespace Lorry
 
         public void uxFileNewHaiku_Click(object sender, RoutedEventArgs e)
         {
-            var mainWindow = new MainWindow();
-            mainWindow.Close();
-
-            var coupletWindow = new CoupletWindow();
-            coupletWindow.Close();
-
             var haikuWindow = new HaikuWindow();
             Application.Current.MainWindow = haikuWindow;
             haikuWindow.Show();
+
+            this.Close();
         }
 
         public void uxFileNewCouplet_Click(object sender, RoutedEventArgs e)
         {
-            var mainWindow = new MainWindow();
-            mainWindow.Close();
-
-            var haikuWindow = new HaikuWindow();
-            haikuWindow.Close();
-
             var coupletWindow = new CoupletWindow();
             Application.Current.MainWindow = coupletWindow;
             coupletWindow.Show();
+
+            this.Close();
         }
 
         public void uxFileOpen_Click(object sender, RoutedEventArgs e)
@@ -50,7 +59,7 @@ namespace Lorry
 
         public void uxFileExit_Click(object sender, RoutedEventArgs e)
         {
-
+            this.Close();
         }
 
         public void uxEdit_Loaded(object sender, RoutedEventArgs e)
@@ -95,16 +104,15 @@ namespace Lorry
 
         public void uxGenerateCouplet_Click(object sender, RoutedEventArgs e)
         {
-            Random rnd = new Random();
+            var coupletContext = new LorryContext();
+            coupletContext.Couplet.Load();
+
             Couplet couplet = new Couplet();
-            Couplet newCouplet = couplet;
+            var list = couplet.CoupletContent.ToList();
+            var randomString = list.RandomElement();
 
-            string[] line = { newCouplet.CoupletContent };
-            int coupletLine = rnd.Next(line.Length);
-            string newLine = line[coupletLine];
-
-            var coupletWindow = new CoupletWindow();
-            coupletWindow.uxSQLCouplet.Content = newLine;
+            //MessageBoxButton button = MessageBoxButton.OK;
+            MessageBox.Show(randomString.ToString());
         }
     }
 }
