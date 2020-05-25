@@ -105,14 +105,15 @@ namespace Lorry
         public void uxGenerateCouplet_Click(object sender, RoutedEventArgs e)
         {
             var coupletContext = new LorryContext();
-            coupletContext.Couplet.Load();
 
-            Couplet couplet = new Couplet();
-            var list = couplet.CoupletContent.ToList();
-            var randomString = list.RandomElement();
+            using (var dbContext = new LorryContext())
+            {
+                List<Couplet> coupletList = coupletContext.Couplet.ToList();
 
-            //MessageBoxButton button = MessageBoxButton.OK;
-            MessageBox.Show(randomString.ToString());
+                Couplet randomCouplet = coupletList.RandomElement();
+
+                MessageBox.Show(randomCouplet.CoupletContent);
+            }
         }
     }
 }
