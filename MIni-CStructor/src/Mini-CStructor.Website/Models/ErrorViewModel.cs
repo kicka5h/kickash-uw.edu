@@ -1,4 +1,5 @@
 using System;
+using Mini_CStructor.Website.Models;
 
 namespace Mini_CStructor.Website.Models
 {

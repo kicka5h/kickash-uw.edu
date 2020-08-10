@@ -5,7 +5,7 @@ using Mini_CStructor.Database;
 
 namespace Mini_CStructor.Repository
 {
-    class DatabaseAccessor
+    public class DatabaseAccessor
     {
         static DatabaseAccessor()
         {
