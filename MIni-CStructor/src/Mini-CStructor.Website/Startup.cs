@@ -12,6 +12,10 @@ using Mini_CStructor.Website.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Mini_CStructor.Business;
+using Mini_CStructor.Repository;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Http;
 
 namespace Mini_CStructor.Website
 {
@@ -27,11 +31,26 @@ namespace Mini_CStructor.Website
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddSession();
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+       .AddCookie(CookieAuthenticationDefaults.AuthenticationScheme, options =>
+       {
+           options.LoginPath = new PathString("/Home/Login");
+           options.AccessDeniedPath = new PathString("/Account/Denied");
+       });
+            services.AddSingleton<IClassManager, ClassManager>();
+            services.AddSingleton<IClassRepository, ClassRepository>();
+
+            services.AddSingleton<IUserManager, UserManager>();
+            services.AddSingleton<IUserRepository, UserRepository>();
+
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
+
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
+
             services.AddControllersWithViews();
             services.AddRazorPages();
         }

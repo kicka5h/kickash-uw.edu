@@ -19,7 +19,7 @@ namespace Mini_CStructor.Repository
         public decimal ClassPrice { get; set; }
     }
 
-    class ClassRepository : IClassRepository
+    public class ClassRepository : IClassRepository
     {
         public ClassModel[] Classes
         {

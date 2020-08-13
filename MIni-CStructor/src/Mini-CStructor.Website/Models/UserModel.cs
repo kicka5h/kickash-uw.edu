@@ -13,6 +13,7 @@ namespace Mini_CStructor.Website.Models
         public string UserPassword { get; set; }
         public bool UserIsAdmin { get; set; }
 
+        /*
         public UserModel (int userID, string userEmail, string userPassword, bool userIsAdmin)
         {
             UserId = userID;
@@ -20,5 +21,6 @@ namespace Mini_CStructor.Website.Models
             UserPassword = userPassword;
             UserIsAdmin = userIsAdmin;
         }
+        */
     }
 }
