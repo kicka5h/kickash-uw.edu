@@ -16,7 +16,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace Mini_CStructor.Website.Controllers
 {
-    [Authorize]
+    //[Authorize]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
@@ -53,6 +53,13 @@ namespace Mini_CStructor.Website.Controllers
             {
                 return View();
             }
+        }
+
+        [HttpGet]
+        public ActionResult LogIn()
+        {
+            ViewData["ReturnUrl"] = Request.Query["returnUrl"];
+            return View();
         }
 
         [HttpPost]

@@ -16,15 +16,15 @@ using Mini_CStructor.Business;
 using Mini_CStructor.Repository;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Http;
+using Mini_CStructor.Website.Models;
+using Microsoft.AspNetCore.Identity.UI.Services;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Mini_CStructor.Website
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
-        {
-            Configuration = configuration;
-        }
+        public Startup(IConfiguration configuration) => Configuration = configuration;
 
         public IConfiguration Configuration { get; }
 
@@ -32,6 +32,7 @@ namespace Mini_CStructor.Website
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddSession();
+            services.AddControllersWithViews();
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
        .AddCookie(CookieAuthenticationDefaults.AuthenticationScheme, options =>
        {
@@ -44,15 +45,45 @@ namespace Mini_CStructor.Website
             services.AddSingleton<IUserManager, UserManager>();
             services.AddSingleton<IUserRepository, UserRepository>();
 
+            /*
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
+            */
 
-            services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
-                .AddEntityFrameworkStores<ApplicationDbContext>();
+            services.AddDbContext<AppIdentityDbContext>(options => options.UseSqlServer(Configuration["ConnectionStrings:DefaultConnection"]));
+            //services.AddIdentity<AppUser, IdentityRole>().AddEntityFrameworkStores<AppIdentityDbContext>().AddDefaultTokenProviders();
+            services.AddDefaultIdentity<AppUser>()
+                .AddRoles<IdentityRole>()
+                .AddEntityFrameworkStores<AppIdentityDbContext>();
+            services.AddScoped<UserManager<AppUser>, UserManager<AppUser>>();
+
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1)
+        .AddRazorPagesOptions(options =>
+        {
+            //options.AllowAreas = true;
+            options.Conventions.AuthorizeAreaFolder("Identity", "/Account/Manage");
+            options.Conventions.AuthorizeAreaPage("Identity", "/Account/Logout");
+        });
+
+            services.ConfigureApplicationCookie(options =>
+            {
+                options.LoginPath = $"/Identity/Account/Login";
+                options.LogoutPath = $"/Identity/Account/Logout";
+                options.AccessDeniedPath = $"/Identity/Account/AccessDenied";
+            });
+
+            // using Microsoft.AspNetCore.Identity.UI.Services;
+            services.AddSingleton<IEmailSender, EmailSender>();
+
+            /*
+            services.AddDefaultIdentity<AppUser>(options => options.SignIn.RequireConfirmedAccount = true)
+                .AddEntityFrameworkStores<AppIdentityDbContext>();
+            */
 
             services.AddControllersWithViews();
             services.AddRazorPages();
+            services.AddMvc();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

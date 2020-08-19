@@ -28,7 +28,6 @@ namespace Mini_CStructor.Repository
                 return DatabaseAccessor.Instance.Class
                                                 .Select(t => new ClassModel { ClassId = t.ClassId, ClassName = t.ClassName, ClassDescription = t.ClassDescription, ClassPrice = t.ClassPrice })
                                                 .ToArray();
-
             }
         }
 

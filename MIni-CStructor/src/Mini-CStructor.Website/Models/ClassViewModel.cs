@@ -9,6 +9,5 @@ namespace Mini_CStructor.Website.Models
     public class ClassViewModel
     {
         public ClassModel Class { get; set; }
-
     }
 }
