@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Identity.UI;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Mini_CStructor.Website.Data;
+using Mini_CStructor.Website;
 
 [assembly: HostingStartup(typeof(Mini_CStructor.Website.Areas.Identity.IdentityHostingStartup))]
 namespace Mini_CStructor.Website.Areas.Identity

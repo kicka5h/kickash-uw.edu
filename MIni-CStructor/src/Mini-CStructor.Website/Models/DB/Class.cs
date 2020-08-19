@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Mini_CStructor.Website
+namespace Mini_CStructor.Website.Models.DB
 {
     public partial class Class
     {
