@@ -59,7 +59,7 @@ namespace Mini_CStructor.Website
                 .AddEntityFrameworkStores<minicstructorContext>();
             services.AddScoped<UserManager<IdentityUser>, UserManager<IdentityUser>>();
 
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1)
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_3_0)
         .AddRazorPagesOptions(options =>
         {
             //options.AllowAreas = true;

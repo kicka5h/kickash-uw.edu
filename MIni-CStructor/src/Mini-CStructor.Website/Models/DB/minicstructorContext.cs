@@ -1,10 +1,11 @@
 ﻿using System;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace Mini_CStructor.Website.Models.DB
 {
-    public partial class minicstructorContext : DbContext
+    public partial class minicstructorContext : IdentityDbContext
     {
         public minicstructorContext()
         {
@@ -32,6 +33,8 @@ namespace Mini_CStructor.Website.Models.DB
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder);
+
             modelBuilder.Entity<Class>(entity =>
             {
                 entity.Property(e => e.ClassDescription)
