@@ -25,7 +25,9 @@ namespace Mini_CStructor.Repository
         {
             get
             {
+#pragma warning disable CS0436 // Type conflicts with imported type
                 return DatabaseAccessor.Instance.Class
+#pragma warning restore CS0436 // Type conflicts with imported type
                                                 .Select(t => new ClassModel { ClassId = t.ClassId, ClassName = t.ClassName, ClassDescription = t.ClassDescription, ClassPrice = t.ClassPrice })
                                                 .ToArray();
             }
@@ -33,7 +35,9 @@ namespace Mini_CStructor.Repository
 
         public ClassModel Class(int classId)
         {
+#pragma warning disable CS0436 // Type conflicts with imported type
             var Class = DatabaseAccessor.Instance.Class
+#pragma warning restore CS0436 // Type conflicts with imported type
                                                  .Where(t => t.ClassId == classId)
                                                  .Select(t => new ClassModel { ClassId = t.ClassId, ClassName = t.ClassName, ClassDescription = t.ClassDescription, ClassPrice = t.ClassPrice })
                                                  .First();
