@@ -1,6 +1,6 @@
 using System;
 
-namespace RestService
+namespace RestServices
 {
     public class WeatherForecast
     {
