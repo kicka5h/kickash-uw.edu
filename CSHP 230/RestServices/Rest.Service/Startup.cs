@@ -11,7 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
-namespace RestServices
+namespace Rest.Service
 {
     public class Startup
     {
@@ -26,6 +26,14 @@ namespace RestServices
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+
+            services
+                .AddMvc()
+                .AddXmlSerializerFormatters()
+                // OR AddXmlDataContractSerializerFormatters( )
+                .SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
+
+            services.AddScoped<IUserRepository, UsersRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
