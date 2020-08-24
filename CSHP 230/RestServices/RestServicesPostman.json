@@ -1,0 +1,419 @@
+{
+	"info": {
+		"_postman_id": "74cd6fa0-c68a-4f38-ab6f-c3be901ecdb9",
+		"name": "Local Host",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET - Get Users",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"sethbrown@outlook.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{LocalHost}}/api/users",
+					"protocol": "https",
+					"host": [
+						"{{LocalHost}}"
+					],
+					"path": [
+						"api",
+						"users"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "GET - Get Users",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"sethbrown@outlook.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{LocalHost}}/api/users",
+							"protocol": "https",
+							"host": [
+								"{{LocalHost}}"
+							],
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Server",
+							"value": "Microsoft-IIS/10.0"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "ASP.NET"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 24 Aug 2020 02:23:17 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": 101,\n        \"email\": \"reseek@jaxphotography.net\",\n        \"dateAdded\": \"0001-01-01T00:00:00\",\n        \"password\": \"mx=p>J8,\"\n    },\n    {\n        \"id\": 102,\n        \"email\": \"orogeny@groovetrove.org\",\n        \"dateAdded\": \"0001-01-01T00:00:00\",\n        \"password\": \"3E-/Sw>`\"\n    },\n    {\n        \"id\": 103,\n        \"email\": \"rcricked@gekkogames.org\",\n        \"dateAdded\": \"0001-01-01T00:00:00\",\n        \"password\": \"pR~8aZ'-\"\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "POST - Create User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\" : \"meseeks@rickmorty.com\",\r\n    \"password\" : \"L$8n3P.{\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{LocalHost}}/api/users",
+					"protocol": "https",
+					"host": [
+						"{{LocalHost}}"
+					],
+					"path": [
+						"api",
+						"users"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "POST - Create User",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\" : \"meseeks@rickmorty.com\",\r\n    \"password\" : \"L$8n3P.{\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{LocalHost}}/api/users",
+							"protocol": "https",
+							"host": [
+								"{{LocalHost}}"
+							],
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Server",
+							"value": "Microsoft-IIS/10.0"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "ASP.NET"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 24 Aug 2020 02:25:18 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "312"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"version\": {\n        \"major\": 1,\n        \"minor\": 1,\n        \"build\": -1,\n        \"revision\": -1,\n        \"majorRevision\": -1,\n        \"minorRevision\": -1\n    },\n    \"content\": {\n        \"headers\": [\n            {\n                \"Key\": \"Content-Type\",\n                \"Value\": [\n                    \"application/json; charset=utf-8\"\n                ]\n            }\n        ]\n    },\n    \"statusCode\": 201,\n    \"reasonPhrase\": \"Created\",\n    \"headers\": [],\n    \"trailingHeaders\": [],\n    \"requestMessage\": null,\n    \"isSuccessStatusCode\": true\n}"
+				}
+			]
+		},
+		{
+			"name": "GET - Get A User",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"sethbrown@outlook.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{LocalHost}}/api/users/{{UserID}}",
+					"protocol": "https",
+					"host": [
+						"{{LocalHost}}"
+					],
+					"path": [
+						"api",
+						"users",
+						"{{UserID}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "GET - Get A User",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"sethbrown@outlook.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{LocalHost}}/api/users/{{UserId}}",
+							"protocol": "https",
+							"host": [
+								"{{LocalHost}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"{{UserId}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Server",
+							"value": "Microsoft-IIS/10.0"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "ASP.NET"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 24 Aug 2020 02:27:04 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 101,\n    \"email\": \"reseek@jaxphotography.net\",\n    \"dateAdded\": \"0001-01-01T00:00:00\",\n    \"password\": \"mx=p>J8,\"\n}"
+				}
+			]
+		},
+		{
+			"name": "PUT - Update a User",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\" : \"rcricked@outlook.org\",\r\n    \"password\" : \"uK-5hz@P\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{LocalHost}}/api/users/{{UserID}}",
+					"protocol": "https",
+					"host": [
+						"{{LocalHost}}"
+					],
+					"path": [
+						"api",
+						"users",
+						"{{UserID}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "PUT - Update a User",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\" : \"rcricked@outlook.org\",\r\n    \"password\" : \"uK-5hz@P\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{LocalHost}}/api/users/{{UserID}}",
+							"protocol": "https",
+							"host": [
+								"{{LocalHost}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"{{UserID}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Server",
+							"value": "Microsoft-IIS/10.0"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "ASP.NET"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 24 Aug 2020 02:29:59 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "307"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"version\": {\n        \"major\": 1,\n        \"minor\": 1,\n        \"build\": -1,\n        \"revision\": -1,\n        \"majorRevision\": -1,\n        \"minorRevision\": -1\n    },\n    \"content\": {\n        \"headers\": [\n            {\n                \"Key\": \"Content-Type\",\n                \"Value\": [\n                    \"application/json; charset=utf-8\"\n                ]\n            }\n        ]\n    },\n    \"statusCode\": 200,\n    \"reasonPhrase\": \"OK\",\n    \"headers\": [],\n    \"trailingHeaders\": [],\n    \"requestMessage\": null,\n    \"isSuccessStatusCode\": true\n}"
+				}
+			]
+		},
+		{
+			"name": "DELETE - Delete a User",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://{{LocalHost}}/api/users/{{UserID}}",
+					"protocol": "https",
+					"host": [
+						"{{LocalHost}}"
+					],
+					"path": [
+						"api",
+						"users",
+						"{{UserID}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "DELETE - Delete a User",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://{{LocalHost}}/api/users/{{UserID}}",
+							"protocol": "https",
+							"host": [
+								"{{LocalHost}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"{{UserID}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Server",
+							"value": "Microsoft-IIS/10.0"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "ASP.NET"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 24 Aug 2020 02:32:05 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "231"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"version\": {\n        \"major\": 1,\n        \"minor\": 1,\n        \"build\": -1,\n        \"revision\": -1,\n        \"majorRevision\": -1,\n        \"minorRevision\": -1\n    },\n    \"content\": null,\n    \"statusCode\": 200,\n    \"reasonPhrase\": \"OK\",\n    \"headers\": [],\n    \"trailingHeaders\": [],\n    \"requestMessage\": null,\n    \"isSuccessStatusCode\": true\n}"
+				}
+			]
+		}
+	],
+	"protocolProfileBehavior": {}
+}
