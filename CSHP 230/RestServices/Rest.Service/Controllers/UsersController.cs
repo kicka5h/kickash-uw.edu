@@ -18,6 +18,7 @@ namespace Rest.Service.Controllers
     public class UsersController : ControllerBase
     {
         public static List<User> users = new List<User>();
+
         private IUserRepository userRepository;
 
         public UsersController(IUserRepository userRepository)
@@ -70,16 +71,46 @@ namespace Rest.Service.Controllers
             };
         }
 
-        // PUT api/<UsersController>/5
+        // PUT: api/Contacts/5
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="user"></param>
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] User value)
+        public HttpResponseMessage Put(int id, [FromBody]User value)
         {
+            if (value == null)
+            {
+                return new HttpResponseMessage();
+            }
+
+            userRepository.Update(id, value);
+
+            var result = new { Id = value.Id, Candy = true };
+
+            var newJson = JsonConvert.SerializeObject(result);
+
+            var postContent = new StringContent(newJson, System.Text.Encoding.UTF8, "application/json");
+
+            return new HttpResponseMessage
+            {
+                StatusCode = HttpStatusCode.OK,
+                Content = postContent
+            };
         }
 
         // DELETE api/<UsersController>/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public HttpResponseMessage Delete(int id)
         {
+            int elements = userRepository.Delete(id);
+
+            return new HttpResponseMessage
+            {
+                StatusCode = (elements == 0) ?
+                                    HttpStatusCode.NotFound : HttpStatusCode.OK
+            };
         }
     }
 }

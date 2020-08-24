@@ -7,6 +7,7 @@ using Newtonsoft.Json;
 
 namespace Rest.Service.Models
 {
+    
     /// <summary>
     /// This is the user class
     /// </summary>
@@ -28,4 +29,5 @@ namespace Rest.Service.Models
         [JsonProperty("password")]
         public string Password { get; set; }
     }
+    
 }
