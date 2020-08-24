@@ -8,7 +8,8 @@ namespace WebSchool.Repository
 {
     public interface IClassRepository
     {
-        ClassModel[] ForClass(int classId);
+        ClassModel[] Classes { get; }
+        ClassModel Class(int classId);
     }
 
     public class ClassModel
@@ -20,15 +21,23 @@ namespace WebSchool.Repository
     }
     public class ClassRepository : IClassRepository
     {
-        ClassModel[] IClassRepository.ForClass(int classId)
+        public ClassModel[] Classes
         {
-            return DatabaseAccessor.Instance.Classes.Select(t => new ClassModel
+            get
             {
-                ClassId = t.ClassId,
-                ClassName = t.ClassName,
-                ClassDescription = t.ClassDescription,
-                ClassPrice = t.ClassPrice
-            }).ToArray();
+                return DatabaseAccessor.Instance.Classes
+                                               .Select(t => new ClassModel { ClassId = t.ClassId, ClassName = t.ClassName, ClassDescription = t.ClassDescription, ClassPrice = t.ClassPrice })
+                                               .ToArray();
+            }
+        }
+
+        public ClassModel Class(int classId)
+        {
+            var forClass = DatabaseAccessor.Instance.Classes
+                                                .Where(t => t.ClassId == classId)
+                                                .Select(t => new ClassModel { ClassId = t.ClassId, ClassName = t.ClassName, ClassDescription = t.ClassDescription, ClassPrice = t.ClassPrice })
+                                                .First();
+            return forClass;
         }
     }
 }

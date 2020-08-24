@@ -17,25 +17,14 @@ namespace WebSchool.Website.Controllers
             this.classManager = classManager;
         }
 
-        public ActionResult Classes(int classId)
+        public ActionResult Classes()
         {
             ViewBag.Message = "Sign up for classes here.";
 
-            var classes = classManager
-                        .Classes(classId)
-                        .Select(t =>
-                            new WebSchool.Website.Models.ClassModel
-                            {
-                                ClassId = t.ClassId,
-                                ClassName = t.ClassName,
-                                ClassDescription = t.ClassDescription,
-                                ClassPrice = t.ClassPrice
-                            }).ToArray();
-
-            var model = new ClassViewModel
-            {
-                Classes = classes
-            };
+            var classes = classManager.Classes
+                                    .Select(t => new WebSchool.Website.Models.ClassModel(t.ClassId, t.ClassName, t.ClassDescription, t.ClassPrice))
+                                    .ToArray();
+            var model = new ClassViewModel { Classes = classes };
 
             return View(model);
         }

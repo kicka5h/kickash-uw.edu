@@ -1,7 +1,18 @@
-﻿@Model WebSchool.Website.Models.ClassViewModel
-
+﻿@model WebSchool.Website.Models.ClassViewModel
 @{
-    ViewBag.Title = "Classes";
+    ViewBag.Title = "Class Page";
 }
 
-<h2>@Model.Classes</h2>
+<div class="jumbotron">
+    <h1>Classes</h1>
+    <p class="lead">Sign up for classes.</p>
+</div>
+
+<div class="row">
+    @foreach (var classes in Model.Classes)
+    {
+        <div class="col-md-4">
+            <h2>@Html.ActionLink(classes.ClassName, "Class", new { classId = classes.ClassId })</h2>
+        </div>
+    }
+</div>

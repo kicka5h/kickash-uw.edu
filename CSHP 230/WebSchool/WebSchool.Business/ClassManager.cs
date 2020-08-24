@@ -9,7 +9,8 @@ namespace WebSchool.Business
 {
     public interface IClassManager
     {
-        ClassModel[] Classes(int classId);
+        ClassModel[] Classes { get; }
+        ClassModel Class(int classId);
     }
 
     public class ClassModel
@@ -18,6 +19,14 @@ namespace WebSchool.Business
         public string ClassName { get; set; }
         public string ClassDescription { get; set; }
         public decimal ClassPrice { get; set; }
+
+        public ClassModel (int classId, string className, string classDescription, decimal classPrice)
+        {
+            ClassId = classId;
+            ClassName = className;
+            ClassDescription = classDescription;
+            ClassPrice = classPrice;
+        }
     }
 
     class ClassManager : IClassManager
@@ -29,15 +38,20 @@ namespace WebSchool.Business
             this.classRepository = classRepository;
         }
 
-        public ClassModel[] Classes(int classId)
+        public ClassModel[] Classes
         {
-            return classRepository.ForClass(classId).Select(t => new ClassModel
+            get
             {
-                ClassId = t.ClassId,
-                ClassName = t.ClassName,
-                ClassDescription = t.ClassDescription,
-                ClassPrice = t.ClassPrice
-            }).ToArray();
+                return classRepository.Classes
+                    .Select(t => new ClassModel(t.ClassId, t.ClassName, t.ClassDescription, t.ClassPrice))
+                    .ToArray();
+            }
+        }
+
+        public ClassModel Class(int classId)
+        {
+            var classModel = classRepository.Class(classId);
+            return new ClassModel(classModel.ClassId, classModel.ClassName, classModel.ClassDescription, classModel.ClassPrice);
         }
     }
 }
