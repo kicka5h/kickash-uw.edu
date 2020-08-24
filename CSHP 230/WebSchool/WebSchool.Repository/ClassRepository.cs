@@ -9,7 +9,6 @@ namespace WebSchool.Repository
     public interface IClassRepository
     {
         ClassModel[] ForClass(int classId);
-        IEnumerable<ClassModel> Classes();
     }
 
     public class ClassModel
@@ -21,17 +20,6 @@ namespace WebSchool.Repository
     }
     public class ClassRepository : IClassRepository
     {
-        IEnumerable<ClassModel> IClassRepository.Classes()
-        {
-            return DatabaseAccessor.Instance.Classes.Select(t => new ClassModel
-            {
-                ClassId = t.ClassId,
-                ClassName = t.ClassName,
-                ClassDescription = t.ClassDescription,
-                ClassPrice = t.ClassPrice
-            }).ToArray();
-        }
-
         ClassModel[] IClassRepository.ForClass(int classId)
         {
             return DatabaseAccessor.Instance.Classes.Select(t => new ClassModel

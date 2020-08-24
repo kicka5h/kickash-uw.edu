@@ -9,7 +9,7 @@ namespace WebSchool.Business
 {
     public interface IClassManager
     {
-        ClassModel[] Classes();
+        ClassModel[] Classes(int classId);
     }
 
     public class ClassModel
@@ -29,9 +29,9 @@ namespace WebSchool.Business
             this.classRepository = classRepository;
         }
 
-        public ClassModel[] Classes()
+        public ClassModel[] Classes(int classId)
         {
-            return classRepository.Classes().Select(t => new ClassModel
+            return classRepository.ForClass(classId).Select(t => new ClassModel
             {
                 ClassId = t.ClassId,
                 ClassName = t.ClassName,

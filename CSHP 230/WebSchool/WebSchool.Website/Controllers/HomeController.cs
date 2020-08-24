@@ -11,23 +11,35 @@ namespace WebSchool.Website.Controllers
     public class HomeController : Controller
     {
         private readonly IClassManager classManager;
+
         public HomeController(IClassManager classManager)
         {
             this.classManager = classManager;
         }
 
-        public ActionResult Classes()
+        public ActionResult Classes(int classId)
         {
-            var classes = (from t in classManager.Classes() select new Business.ClassModel
-            {
-                ClassId = t.ClassId,
-                ClassName = t.ClassName,
-                ClassDescription = t.ClassDescription,
-                ClassPrice = t.ClassPrice
-            }).ToList();
+            ViewBag.Message = "Sign up for classes here.";
 
-            return View(classes);
+            var classes = classManager
+                        .Classes(classId)
+                        .Select(t =>
+                            new WebSchool.Website.Models.ClassModel
+                            {
+                                ClassId = t.ClassId,
+                                ClassName = t.ClassName,
+                                ClassDescription = t.ClassDescription,
+                                ClassPrice = t.ClassPrice
+                            }).ToArray();
+
+            var model = new ClassViewModel
+            {
+                Classes = classes
+            };
+
+            return View(model);
         }
+
         public ActionResult Index()
         {
             return View();
