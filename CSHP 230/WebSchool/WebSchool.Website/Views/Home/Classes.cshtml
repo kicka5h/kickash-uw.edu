@@ -11,8 +11,8 @@
 <div class="row">
     @foreach (var classes in Model.Classes)
     {
-        <div class="col-md-4">
-            <h2>@Html.ActionLink(classes.ClassName, "Class", new { classId = classes.ClassId })</h2>
-        </div>
+        @String.Format(classes.ClassName, classes.ClassDescription)
+        <a asp-action="Classes" asp-route-id="@classes.ClassId">Register</a>
+        <br />
     }
 </div>
