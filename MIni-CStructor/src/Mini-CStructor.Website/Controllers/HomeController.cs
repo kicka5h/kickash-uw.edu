@@ -143,6 +143,14 @@ namespace Mini_CStructor.Website.Controllers
             return View();
         }
 
+        public IActionResult Classes()
+        {
+            var classes = classManager.Classes.Select(t => new Models.ClassModel(t.ClassId, t.ClassName, t.ClassDescription, t.ClassPrice)).ToArray();
+            var model = new IndexModel { Classes = classes };
+
+            return View(model);
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
