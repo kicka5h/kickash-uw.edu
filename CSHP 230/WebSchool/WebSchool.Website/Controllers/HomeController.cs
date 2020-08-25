@@ -11,10 +11,12 @@ namespace WebSchool.Website.Controllers
     public class HomeController : Controller
     {
         private readonly IClassManager classManager;
+        private readonly IUserManager userManager;
 
-        public HomeController(IClassManager classManager)
+        public HomeController(IClassManager classManager, IUserManager userManager)
         {
             this.classManager = classManager;
+            this.userManager = userManager;
         }
 
         public ActionResult Classes()
@@ -46,6 +48,48 @@ namespace WebSchool.Website.Controllers
             ViewBag.Message = "Your contact page.";
 
             return View();
+        }
+
+        public ActionResult LogIn()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult LogIn(LoginModel loginModel, string returnUrl)
+        {
+            if (ModelState.IsValid)
+            {
+                var user = userManager.LogIn(loginModel.UserEmail, loginModel.UserPassword);
+
+                if (user == null)
+                {
+                    ModelState.AddModelError("", "User name and password do not match.");
+                }
+                else
+                {
+                    Session["User"] = new WebSchool.Website.Models.UserModel
+                    {
+                        UserId = user.UserId,
+                        UserEmail = user.UserEmail
+                    };
+
+                    System.Web.Security.FormsAuthentication.SetAuthCookie(
+                        loginModel.UserEmail, false);
+
+                    return Redirect(returnUrl ?? "~/");
+                }
+            }
+
+            return View(loginModel);
+        }
+
+        public ActionResult LogOff()
+        {
+            Session["User"] = null;
+            System.Web.Security.FormsAuthentication.SignOut();
+
+            return Redirect("~/");
         }
     }
 }
