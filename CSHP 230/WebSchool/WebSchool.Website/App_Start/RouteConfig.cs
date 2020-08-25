@@ -20,8 +20,13 @@ namespace WebSchool.Website
             );
             routes.MapRoute(
                 name: "Classes",
-                url: "{controller}/{action}/{classId}",
+                url: "{controller}/{action}/{id}",
                 new { controller = "Home", action = "Classes", id = UrlParameter.Optional }
+            );
+            routes.MapRoute(
+                name: "ClassRegister",
+                url: "{controller}/{action}/{id}",
+                new { controller = "Home", action = "Register", id = UrlParameter.Optional }
             );
         }
     }

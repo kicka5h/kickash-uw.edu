@@ -26,9 +26,21 @@ namespace WebSchool.Website.Controllers
             var classes = classManager.Classes
                                     .Select(t => new WebSchool.Website.Models.ClassModel(t.ClassId, t.ClassName, t.ClassDescription, t.ClassPrice))
                                     .ToArray();
-            var model = new ClassViewModel { Classes = classes };
+            var model = classes.Select(t => new Models.ClassViewModel.ClassRegisterModel
+            {
+                ClassId = t.ClassId,
+                ClassName = t.ClassName,
+                ClassDescription = t.ClassDescription,
+                ClassPrice = t.ClassPrice
+            }).ToArray();
 
             return View(model);
+        }
+
+        public ActionResult ClassRegister()
+        {
+            ViewBag.Message = "Register for your class here.";
+            return View();
         }
 
         public ActionResult Index()
