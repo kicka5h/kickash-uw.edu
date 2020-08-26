@@ -24,9 +24,9 @@ namespace WebSchool.Website
                 new { controller = "Home", action = "Classes", id = UrlParameter.Optional }
             );
             routes.MapRoute(
-                name: "ClassRegister",
+                name: "Registration",
                 url: "{controller}/{action}/{id}",
-                new { controller = "Home", action = "Register", id = UrlParameter.Optional }
+                new { controller = "Home", action = "Registration", id = UrlParameter.Optional }
             );
         }
     }

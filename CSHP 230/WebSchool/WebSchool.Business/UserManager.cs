@@ -50,7 +50,7 @@ namespace WebSchool.Business
                 return null;
             }
 
-            return new UserModel { UserId = user.UserId, UserEmail = user.UserEmail };
+            return new UserModel { UserId = user.UserId, UserEmail = user.UserEmail, UserPassword = user.UserPassword };
         }
     }
 }

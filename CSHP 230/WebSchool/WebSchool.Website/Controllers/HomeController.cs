@@ -37,9 +37,9 @@ namespace WebSchool.Website.Controllers
             return View(model);
         }
 
-        public ActionResult ClassRegister()
+        public ActionResult Registration()
         {
-            ViewBag.Message = "Register for your class here.";
+            ViewBag.Message = "You've registered for a class!";
             return View();
         }
 
@@ -102,6 +102,27 @@ namespace WebSchool.Website.Controllers
             System.Web.Security.FormsAuthentication.SignOut();
 
             return Redirect("~/");
+        }
+
+        [HttpGet]
+        public ActionResult Register()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Register(RegisterModel registerModel)
+        {
+            if (ModelState.IsValid)
+            {
+                userManager.Register(registerModel.UserEmail, registerModel.UserPassword);
+
+                return Redirect("~/");
+            }
+            else
+            {
+                return View();
+            }
         }
     }
 }

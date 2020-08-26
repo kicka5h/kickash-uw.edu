@@ -40,8 +40,7 @@
                 @Html.DisplayFor(modelItem => item.ClassPrice)
             </td>
             <td>
-                @Html.RouteLink("Register", "ClassRegister", new { action = "ClassRegister", controller = "Home", area = "" })
-            </td>
+                @Html.ActionLink("Register", "Registration")
         </tr>
     }
 
