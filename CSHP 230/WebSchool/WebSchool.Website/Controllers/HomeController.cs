@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using WebSchool.Business;
@@ -111,6 +112,7 @@ namespace WebSchool.Website.Controllers
         }
 
         [HttpPost]
+        [AllowAnonymous]
         public ActionResult Register(RegisterModel registerModel)
         {
             if (ModelState.IsValid)

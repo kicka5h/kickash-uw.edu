@@ -11,5 +11,6 @@ namespace WebSchool.Website.Models
         public string UserEmail { get; set; }
         public string UserPassword { get; set; }
         public bool UserIsAdmin { get; set; }
+        public virtual ICollection<ClassModel> Classes { get; set; }
     }
 }

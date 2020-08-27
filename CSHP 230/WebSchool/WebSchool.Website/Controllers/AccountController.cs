@@ -142,7 +142,7 @@ namespace WebSchool.Website.Controllers
             return View();
         }
 
-        //
+        /*
         // POST: /Account/Register
         [HttpPost]
         [AllowAnonymous]
@@ -171,6 +171,7 @@ namespace WebSchool.Website.Controllers
             // If we got this far, something failed, redisplay form
             return View(model);
         }
+        */
 
         //
         // GET: /Account/ConfirmEmail

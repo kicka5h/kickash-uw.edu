@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WebSchool.ClassDatabase;
 
 namespace WebSchool.Repository
 {
@@ -10,6 +11,7 @@ namespace WebSchool.Repository
     {
         UserModel Login(string email, string password);
         UserModel Register(string email, string password);
+        UserModel AddClass(int userId, int classId);
     }
 
     public class UserModel
@@ -18,6 +20,7 @@ namespace WebSchool.Repository
         public string UserEmail { get; set; }
         public string UserPassword { get; set; }
         public bool UserIsAdmin { get; set; }
+        public virtual ICollection<Class> Classes { get; set; }
     }
 
     public class UserRepository : IUserRepository
@@ -48,6 +51,13 @@ namespace WebSchool.Repository
             DatabaseAccessor.Instance.SaveChanges();
 
             return new UserModel { UserId = user.UserId, UserEmail = user.UserEmail, UserPassword = user.UserPassword };
+        }
+
+        public UserModel AddClass(int userId, int classId)
+        {
+            var classes = DatabaseAccessor.Instance.Classes.Where(t => t.ClassId == classId).ToList();
+
+            return new UserModel { Classes = classes };
         }
     }
 }
