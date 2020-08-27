@@ -10,6 +10,9 @@ namespace WebSchool.Repository
     public interface IUserClassRepository
     {
         UserClassModel AddClass(int UserId, int ClassId);
+        /*
+        List<UserClassModel> GetUserClasses(int userId);
+        */
     }
 
     public class UserClassModel
@@ -27,5 +30,12 @@ namespace WebSchool.Repository
 
             return new UserClassModel { ClassId = classes.ClassId, UserId = user.UserId };
         }
+
+        /*
+        public List<UserClassModel> GetUserClasses(int userId)
+        {
+            return DatabaseAccessor.Instance.Users.Where(t => t.User.)
+        }
+        */
     }
 }

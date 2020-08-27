@@ -9,5 +9,7 @@ namespace WebSchool.Website.Models
     {
         public int UserId { get; set; }
         public int ClassId { get; set; }
+        public ClassModel Class { get; set; }
+        public UserModel User { get; set; }
     }
 }

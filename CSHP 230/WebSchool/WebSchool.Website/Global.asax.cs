@@ -37,7 +37,6 @@ namespace WebSchool.Website
 
             builder.Register(c => HttpContext.Current.GetOwinContext().Authentication).As<IAuthenticationManager>();
 
-
             var container = builder.Build();
 
             // Configure dependency resolver.

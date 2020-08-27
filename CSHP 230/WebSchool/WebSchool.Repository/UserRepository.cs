@@ -12,6 +12,11 @@ namespace WebSchool.Repository
         UserModel Login(string email, string password);
         UserModel Register(string email, string password);
         UserModel AddClass(int userId, int classId);
+
+        /*
+        List<UserModel> Users { get; }
+        UserModel User(int id);
+        */
     }
 
     public class UserModel
@@ -20,11 +25,30 @@ namespace WebSchool.Repository
         public string UserEmail { get; set; }
         public string UserPassword { get; set; }
         public bool UserIsAdmin { get; set; }
-        public virtual ICollection<Class> Classes { get; set; }
+        public ICollection<Class> Classes { get; set; }
     }
 
     public class UserRepository : IUserRepository
     {
+        /*
+        public List<UserModel> Users
+        {
+            get
+            {
+                return DatabaseAccessor.Instance.Users.ToList();
+            }
+        }
+        */
+
+        /*
+        public UserModel User(int id)
+        {
+
+            return DatabaseAccessor.Instance.Users.FirstOrDefault(t => t.UserId == id);
+
+        }
+        */
+
         public UserModel Login(string email, string password)
         {
             var user = DatabaseAccessor.Instance.Users
@@ -50,12 +74,14 @@ namespace WebSchool.Repository
 
             DatabaseAccessor.Instance.SaveChanges();
 
-            return new UserModel { UserId = user.UserId, UserEmail = user.UserEmail, UserPassword = user.UserPassword };
+            return new UserModel{ UserId = user.UserId, UserEmail = user.UserEmail, UserPassword = user.UserPassword };
         }
 
         public UserModel AddClass(int userId, int classId)
         {
             var classes = DatabaseAccessor.Instance.Classes.Where(t => t.ClassId == classId).ToList();
+
+            DatabaseAccessor.Instance.SaveChanges();
 
             return new UserModel { Classes = classes };
         }

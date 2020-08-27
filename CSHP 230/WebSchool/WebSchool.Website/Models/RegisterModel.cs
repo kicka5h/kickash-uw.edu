@@ -10,12 +10,12 @@ namespace WebSchool.Website.Models
     {
         [Required]
         [Display(Name = "Email")]
-        public string UserEmail { get; set; }
+        public string Email { get; set; }
 
         [Required]
         [DataType(DataType.Password)]
         [Display(Name = "Password")]
-        public string UserPassword { get; set; }
+        public string Password { get; set; }
 
         [Required]
         [DataType(DataType.Password)]

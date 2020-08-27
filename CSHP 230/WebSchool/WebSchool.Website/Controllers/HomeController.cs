@@ -1,9 +1,11 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 using WebSchool.Business;
 using WebSchool.Website.Models;
 
@@ -13,11 +15,13 @@ namespace WebSchool.Website.Controllers
     {
         private readonly IClassManager classManager;
         private readonly IUserManager userManager;
+        private readonly IUserClassManager userClassManager;
 
-        public HomeController(IClassManager classManager, IUserManager userManager)
+        public HomeController(IClassManager classManager, IUserManager userManager, IUserClassManager userClassManager)
         {
             this.classManager = classManager;
             this.userManager = userManager;
+            this.userClassManager = userClassManager;
         }
 
         public ActionResult Classes()
@@ -108,7 +112,7 @@ namespace WebSchool.Website.Controllers
         [HttpGet]
         public ActionResult Register()
         {
-            return View();
+            return View(new RegisterModel());
         }
 
         [HttpPost]
@@ -117,14 +121,35 @@ namespace WebSchool.Website.Controllers
         {
             if (ModelState.IsValid)
             {
-                userManager.Register(registerModel.UserEmail, registerModel.UserPassword);
+                userManager.Register(registerModel.Email, registerModel.Password);
 
-                return Redirect("~/");
+
+                return RedirectToAction("Classes", "Home");
             }
             else
             {
                 return View();
             }
         }
+
+        private Models.UserModel GetLoggedOnUser()
+        {
+            if (User.Identity.IsAuthenticated)
+            {
+                return JsonConvert.DeserializeObject<Models.UserModel>(HttpContext.User.Identity.Name);
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        /*
+        private List<Models.UserClassModel> GetUserClasses()
+        {
+            var user = GetLoggedOnUser();
+            return userClassManager.GetUserClasses(user.UserId).ToList();
+        }
+        */
     }
 }
