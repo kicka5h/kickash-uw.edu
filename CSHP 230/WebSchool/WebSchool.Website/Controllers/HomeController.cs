@@ -44,25 +44,26 @@ namespace WebSchool.Website.Controllers
 
         public ActionResult Registration()
         {
-            ViewBag.Message = "You've registered for a class!";
+            ViewBag.Message = "You've signed up for the classes below.";
             return View();
         }
 
         public ActionResult Index()
         {
+            ViewBag.Message = "Click the Classes tab to get started.";
             return View();
         }
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
+            ViewBag.Message = "Webschool is an online class project for C# certification at UW.";
 
             return View();
         }
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
+            ViewBag.Message = "Nothing here yet.";
 
             return View();
         }
